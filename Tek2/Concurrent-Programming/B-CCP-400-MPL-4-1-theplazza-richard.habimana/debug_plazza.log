@@ -1,0 +1,34 @@
+START OF THE LOOP
+
+Get Status start
+Get Status end
+
+KITCHEN STATUS
+No kitchen available on this log
+
+Messenger::receive start
+Messenger::receive called
+Creating new kitchen[0]
+Plazza fill kitchen[0] cook [0] current
+Plazza send cmd: Cooks[0][0]:1,8
+
+Plazza fill kitchen[0] cook [1] current
+Plazza send cmd: Cooks[1][0]:1,8
+
+Plazza fill kitchen[0] cook [0] next
+Plazza send cmd: Cooks[0][1]:1,8
+
+Plazza fill kitchen[0] cook [1] next
+Plazza send cmd: Cooks[1][1]:1,8
+
+Messenger::receive start
+Messenger::receive called
+Creating new kitchen[1]
+Plazza fill kitchen[1] cook [0] current
+Plazza send cmd: Cooks[0][0]:1,8
+
+END OF THE LOOP PART 1
+END OF THE LOOP PART 2
+Clear Mq function: clear mq[0]
+Messenger::receive start
+Messenger::receive called

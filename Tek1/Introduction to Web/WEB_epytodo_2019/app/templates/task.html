@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <br>
+    <h1>{{tasks.title}}</h1>
+    <small>Made on {{tasks.begin}}</small>
+    <hr>
+    <div>
+        {{tasks.status | safe}}
+    </div>
+{% endblock %}

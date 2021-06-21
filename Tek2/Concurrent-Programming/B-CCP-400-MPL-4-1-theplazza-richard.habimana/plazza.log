@@ -1,0 +1,27 @@
+Plazza initializing ...
+Creating new kitchen with id 1
+Cooking Regina of size XXL in kitchen with id 1 with the number 1 cook
+Cooking Regina of size XXL in kitchen with id 1 with the number 2 cook
+Cooking Regina of size XXL in kitchen with id 1 with the number 1 cook
+Cooking Regina of size XXL in kitchen with id 1 with the number 2 cook
+Creating new kitchen with id 2
+Cooking Regina of size XXL in kitchen with id 2 with the number 1 cook
+Cooking Regina of size XXL in kitchen with id 2 with the number 2 cook
+Cooking Regina of size XXL in kitchen with id 2 with the number 1 cook
+Cooking Regina of size XXL in kitchen with id 2 with the number 2 cook
+Creating new kitchen with id 3
+Cooking Regina of size XXL in kitchen with id 3 with the number 1 cook
+Cooking Regina of size XXL in kitchen with id 3 with the number 2 cook
+Finished regina size XXL with kitchen id 1
+Finished regina size XXL with kitchen id 1
+Finished regina size XXL with kitchen id 2
+Finished regina size XXL with kitchen id 2
+Finished regina size XXL with kitchen id 3
+Finished regina size XXL with kitchen id 3
+Finished regina size XXL with kitchen id 1
+Finished regina size XXL with kitchen id 1
+Finished regina size XXL with kitchen id 2
+Finished regina size XXL with kitchen id 2
+Kitchen kill with kitchen id 3
+Kitchen kill with kitchen id 1
+Kitchen kill with kitchen id 2

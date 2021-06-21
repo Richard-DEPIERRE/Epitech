@@ -1,0 +1,11 @@
+NAME :
+        RUNNER beta v0.2
+
+DESCRIPTION :
+        Try and get as far as possible without hitting the spikes.
+
+OPTIONS :
+        Use ./runner 'map' -i for infinte mode
+
+CREDITS :
+        Made by Uichard.

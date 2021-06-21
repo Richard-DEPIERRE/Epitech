@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+import sys
+import os
+import math
+
+def print_help():
+    print('USAGE\n    ./102architect x y transfo1 arg11 [arg12] [transfo2 arg12 [arg22]] ...\n\nDESCRIPTION\n    x   abscissa of the original point\n    y   ordinate of the original point\n\n    transfo arg1 [arg2]\n    -t i j  translation along vector (i, j)\n    -z m n  scaling by factors m (x-axis) and n (y-axis)\n    -r d    rotation centered in O by a d degree angle\n    -s d    reflection over the axis passing through O with an inclination\n            angle of d degrees')
+
+if len(sys.argv) == 2:
+    if sys.argv[1] == '-h':
+        print_help()
+        sys.exit(0)
+tableau = [1, 0, 0, 0, 1, 0 ,0, 0, 1]
+tab2 = [0, 0, 0, 0, 0, 0, 0, 0, 1]
+lol = 0
+table = []
+try:
+    Vx = int(sys.argv[1])
+except:
+    sys.exit(84)
+try:
+    Vy = int(sys.argv[2])
+except:
+    sys.exit(84)
+for count in sys.argv:
+    if (count == './102architect'):
+        lol += 1
+    else:
+        table.append(count)
+
+for count in range(len(table)):
+    if (table[count] == '-t'):
+        tableau[2] += int(table[count + 1])
+        tableau[5] += int(table[count + 2])
+        print('Translation along vector ('+table[count + 1]+', '+table[count + 2]+')')
+        Vx2 = tableau[0]*float(Vx)+tableau[1]*float(Vy)+tableau[2]
+        Vy2 = tableau[3]*float(Vx)+tableau[4]*float(Vy)+tableau[5]
+    if (table[count] == '-z'):
+        tableau[0] *= int(table[count + 1])
+        tableau[4] *= int(table[count + 2])
+        print('Scaling by factors '+table[count + 1]+' and '+table[count + 2]+'')
+        Vx2 = tableau[0]*float(Vx)+tableau[1]*float(Vy)+tableau[2]
+        Vy2 = tableau[3]*float(Vx)+tableau[4]*float(Vy)+tableau[5]
+    if (table[count] == '-r'):
+        tab2[0] = math.cos((float(table[count + 1]) * math.pi) / 180)
+        tab2[1] = -math.sin((float(table[count + 1]) * math.pi) / 180)
+        tab2[3] = math.sin((float(table[count + 1]) * math.pi) / 180)
+        tab2[4] = math.cos((float(table[count + 1]) * math.pi) / 180)
+        print('Rotation by a '+table[count + 1]+' degree angle')
+        cpy_tab = [0, 0, 0, 0, 0, 0, 0, 0, 1]
+        for i in range(9):
+            cpy_tab[i] = tableau[i]
+        tableau[0] = cpy_tab[0] * tab2[0] + cpy_tab[1] * tab2[3] + cpy_tab[2] * tab2[6]
+        tableau[1] = cpy_tab[0] * tab2[1] + cpy_tab[1] * tab2[4] + cpy_tab[2] * tab2[7]
+        tableau[2] = cpy_tab[0] * tab2[2] + cpy_tab[1] * tab2[5] + cpy_tab[2] * tab2[8]
+        tableau[3] = cpy_tab[3] * tab2[0] + cpy_tab[4] * tab2[3] + cpy_tab[5] * tab2[6]
+        tableau[4] = cpy_tab[3] * tab2[1] + cpy_tab[4] * tab2[4] + cpy_tab[5] * tab2[7]
+        tableau[5] = cpy_tab[3] * tab2[2] + cpy_tab[4] * tab2[5] + cpy_tab[5] * tab2[8]
+        tableau[6] = cpy_tab[6] * tab2[0] + cpy_tab[7] * tab2[3] + cpy_tab[8] * tab2[6]
+        tableau[7] = cpy_tab[6] * tab2[1] + cpy_tab[7] * tab2[4] + cpy_tab[8] * tab2[7]
+        tableau[8] = cpy_tab[6] * tab2[2] + cpy_tab[7] * tab2[5] + cpy_tab[8] * tab2[8]
+        Vx2 = tab2[0] * Vx + tab2[1] * Vy
+        Vy2 = tab2[3] * Vx + tab2[4] * Vy
+    if (table[count] == '-s'):
+        tab2[0] = math.cos(2 * ((float(table[count + 1]) * math.pi) / 180))
+        tab2[1] = math.sin(2 * ((float(table[count + 1]) * math.pi) / 180))
+        tab2[3] = math.sin(2 * ((float(table[count + 1]) * math.pi) / 180))
+        tab2[4] = -math.cos(2 * ((float(table[count + 1]) * math.pi) / 180))
+        print('Reflection over an axis with an inclination angle of '+table[count + 1]+' degrees')
+        cpy_tab = [0, 0, 0, 0, 0, 0, 0, 0, 1]
+        for i in range(9):
+            cpy_tab[i] = tableau[i]
+        tableau[0] = cpy_tab[0] * tab2[0] + cpy_tab[1] * tab2[3] + cpy_tab[2] * tab2[6]
+        tableau[1] = cpy_tab[0] * tab2[1] + cpy_tab[1] * tab2[4] + cpy_tab[2] * tab2[7]
+        tableau[2] = cpy_tab[0] * tab2[2] + cpy_tab[1] * tab2[5] + cpy_tab[2] * tab2[8]
+        tableau[3] = cpy_tab[3] * tab2[0] + cpy_tab[4] * tab2[3] + cpy_tab[5] * tab2[6]
+        tableau[4] = cpy_tab[3] * tab2[1] + cpy_tab[4] * tab2[4] + cpy_tab[5] * tab2[7]
+        tableau[5] = cpy_tab[3] * tab2[2] + cpy_tab[4] * tab2[5] + cpy_tab[5] * tab2[8]
+        tableau[6] = cpy_tab[6] * tab2[0] + cpy_tab[7] * tab2[3] + cpy_tab[8] * tab2[6]
+        tableau[7] = cpy_tab[6] * tab2[1] + cpy_tab[7] * tab2[4] + cpy_tab[8] * tab2[7]
+        tableau[8] = cpy_tab[6] * tab2[2] + cpy_tab[7] * tab2[5] + cpy_tab[8] * tab2[8]
+        Vx2 = tab2[0] * Vx + tab2[1] * Vy
+        Vy2 = tab2[3] * Vx + tab2[4] * Vy
+print('%.2f' %tableau[0] +'\t%.2f' %tableau[1] +'\t%.2f'%tableau[2] +'\n%.2f' %tableau[3] +'\t%.2f' %tableau[4]+'\t%.2f' %tableau[5]+'\n%.2f' %tableau[6]+'\t%.2f' %tableau[7]+'\t%.2f' %tableau[8])
+print('(%.2f' %float(sys.argv[1])+ ', %.2f' %float(sys.argv[2])+ ') => (%.2f' %Vx2+ ', %.2f' %Vy2+ ')')
+

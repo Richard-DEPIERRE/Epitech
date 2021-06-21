@@ -1,0 +1,12 @@
+/*
+** EPITECH PROJECT, 2019
+** my_macro.h
+** File description:
+** my macro abs
+*/
+
+#ifndef ABS
+
+#define ABS(value) (((value) < (0) ? ((value) * (-1)) : (value))
+
+#endif

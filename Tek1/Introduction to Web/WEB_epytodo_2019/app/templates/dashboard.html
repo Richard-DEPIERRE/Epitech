@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Dashboard <small>Welcome {{session.username}}!</small></h1>
+  <a class="btn btn-success" href="/user/task/add">Add Task</a>
+  <hr>
+  <table class="table table-striped">
+      <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th></th>
+          <th></th>
+      </tr>
+      {% for task in tasks%}
+        <tr>
+            <th>{{task.task_id}}</th>
+            <th>{{task.title}}</th>
+            <th><a href="user/task/edit/{{task.task_id}}" class="btn btn-default pull-right">Edit</a></th>
+            <td>
+                <form action="{{url_for('route_delete_task', id=task.task_id)}}" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" name="Delete" class="btn btn-danger">
+                </form>
+            </td>
+        </tr>
+      {% endfor %}
+  </table>
+{% endblock %}

@@ -1,0 +1,23 @@
+NAME :
+        UFO_HUNTER beta v0.2
+
+DESCRIPTION :
+        Try and kill as many ufos as possible while protecting your cows.
+        If you kill a cow you die. If you don't kill enough ufo's in time
+        then the ufos will kill you.
+
+CREDITS :
+        Made by Uichard.
+        Background :
+            https://www.deviantart.com/lt-fleur/art/Nightmare-Night-Background-400097496
+        UFO :
+            Bleed - http://remusprites.carbonmade.com
+        Background music :
+            https://www.youtube.com/watch?v=8SRrMpJKNHU
+        Elevator music :
+            https://www.youtube.com/watch?v=xy_NKN75Jhw&t=96s
+        Main menu image :
+            https://ufofest.com/homepage/ufo-background/
+        Game over image :
+            http://getwallpapers.com/collection/ufo-wallpaper-hd
+        

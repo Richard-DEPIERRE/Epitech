@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+        <h1>Welcome to FlaskApp</h1>
+        <p class="lead">Rafik MERZOUK, Thanael FONTAINE, Richard DEPIERRE</p>
+        <br>
+        {% if session.logged_in == NULL %}
+            <a href="/register" class="btn btn-primary btn-lg">Register</a>
+            <a href="/signin" class="btn btn-sucess btn-lg">Login</a>
+        {% else %}
+            <a href="/signout" class="btn btn-primary btn-lg">Signout</a>
+        {% endif %}
+    </div>
+{% endblock %}

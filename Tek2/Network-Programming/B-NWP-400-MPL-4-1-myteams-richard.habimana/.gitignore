@@ -1,0 +1,7 @@
+db/messages.db
+db/users.db
+db/team.db
+db/channel.db
+db/thread.db
+db/links.db
+db/reply.db
